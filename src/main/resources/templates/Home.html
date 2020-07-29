@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="container">
+    <div class="mt-5 bg-warning">
+        <span class="rounded">
+    <div class="jumbotron jumbotron-fluid" >
+        <div class="container">
+            <h1 class="display-6" align="center">Coronavirus Tracker Application</h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+            </span>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" align="center" th:text="${totalReportedCases}" ></h5>
+                    <p class="card-text" align="center" >Total Reported Cases</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${totalReportedDeaths}" align="center" ></h5>
+                    <p class="card-text" align="center" >Total Reported Deaths</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+<table class="table table-hover table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Province_State</th>
+        <th scope="col">Country_Region</th>
+        <th scope="col">Confirmed</th>
+        <th scope="col">Deaths</th>
+        <th scope="col">Recovered</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="Data : ${Data}">
+        <th  scope="row" th:text="${Data.Province_State}">STATE</th>
+        <td th:text="${Data.Country_Region}">Country</td>
+        <td th:text="${Data.Confirmed}">0</td>
+        <td th:text="${Data.Deaths}">0</td>
+        <td th:text="${Data.Recovered}">0</td>
+    </tr>
+</table>
+
+</div>
+</body>
+
+</html>
